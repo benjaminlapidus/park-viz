@@ -24,7 +24,7 @@ export default function Chart() {
   const theme = useTheme();
 
   return (
-    <React.Fragment>
+    <React.Fragment width="100px" height="100px">
       <Title>Today</Title>
       <ResponsiveContainer>
         <LineChart
