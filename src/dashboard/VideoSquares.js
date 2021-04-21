@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
 	},
 	gridList: {
 		height: "100%",
+		padding: "8px;"
 	},
 	icon: {
 		color: "rgba(255, 255, 255, 0.54)",
@@ -63,14 +64,14 @@ const tileData = [
 
 ];
 
-export default function TitlebarGridList() {
+export default function VideoSquares() {
 	const classes = useStyles();
 
 	return (
 		<div className={classes.root}>
-			<GridList cellHeight="150px" spacing={12} className={classes.gridList}>
+			<GridList cellHeight="100px" spacing={12} className={classes.gridList}>
 				{tileData.map((tile) => (
-					<GridListTile cols={.5} key={tile.img}>
+					<GridListTile cols={1/2.5} key={tile.img}>
 						<img src={tile.img} alt={tile.title} />
 						<GridListTileBar
 							title={tile.title}

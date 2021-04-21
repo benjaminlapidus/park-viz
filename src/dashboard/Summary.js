@@ -10,15 +10,13 @@ import Workflow from "./Workflow";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Chart from "./Chart";
-import ChooseVideo from "./ChooseVideo";
-import DataAnalysis from "./DataAnalysis";
 import VideoSquares from "./VideoSquares";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
-import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
+
 import Fab from "@material-ui/core/Fab";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 
@@ -176,31 +174,73 @@ export default function HorizontalLinearStepper() {
 
       <div>
         {activeStep === 0 && (
-          <ChooseVideo />
+          <Grid lg={12}>
+            <Typography className={classes.instructions}>
+              {getStepContent(activeStep)}
+            </Typography>
+            <Paper elevation={2}>
+              <VideoSquares />
+            </Paper>
+          </Grid>
         )}
 
         {activeStep === 1 && (
-          <DataAnalysis />
+          <div className={classes.root}>
+            <CssBaseline />
+
+            <main className={classes.content}>
+              <Container maxWidth="lg" className={classes.container}>
+                <Grid container spacing={3}>
+                  {/* Chart */}
+                  <Grid item xs={12} md={8} lg={9}>
+                    <Paper className={fixedHeightPaper}>
+                      <Chart />
+                    </Paper>
+                  </Grid>
+                  {/* Recent Deposits */}
+                  <Grid item xs={12} md={4} lg={3}>
+                    <Paper className={fixedHeightPaper}></Paper>
+                  </Grid>
+                  {/* Recent Orders */}
+                  <Grid item xs={12}>
+                    <Paper className={classes.paper}></Paper>
+                  </Grid>
+                </Grid>
+                <Box pt={4}></Box>
+              </Container>
+            </main>
+          </div>
         )}
 
-        {activeStep === 2 && (
-          <div className={classes.root}></div>
-        )}
+        {activeStep === 2 && <div className={classes.root}></div>}
 
         {activeStep === steps.length - 1 ? (
-           <div>
-            <Fab
-              variant="extended"
-              size="large"
-              color="primary"
-              aria-label="add"
-              onClick={handleReset}
-              className={classes.fab}
-            >
-              Reset
-              <RotateLeftIcon />
-            </Fab>
-          </div>
+          <Grid
+            style={{ paddingTop: "12px" }}
+            container
+            spacing={1}
+            justify={"flex-end"}
+          >
+            <Grid item>
+              <Button
+                disabled={activeStep === 0}
+                onClick={handleBack}
+                className={classes.button}
+              >
+                Back
+              </Button>
+            </Grid>
+            <Grid item>
+              <Button
+                onClick={handleReset}
+                className={classes.button}
+                variant="contained"
+                color="primary"
+              >
+                Save and start over
+              </Button>
+            </Grid>
+          </Grid>
         ) : (
           <div>
             <Fab
