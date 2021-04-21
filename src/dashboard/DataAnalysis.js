@@ -20,6 +20,7 @@ import Box from "@material-ui/core/Box";
 import Fab from "@material-ui/core/Fab";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ReactPlayer from "react-player";
+import InfoIcon from '@material-ui/icons/Info';
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
@@ -36,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   fixedHeight: {
-    height: 200,
+    height: 225,
   },
 }));
 
@@ -64,15 +65,20 @@ export default function DataAnalysis() {
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={5}>
-              <Paper style={{ height: "100%", padding: "12px" }}>
+              <Paper elevation={3} style={{display:"flex", justifyContent:"space-between", height: "100%", padding: "12px" }}>
+
                 <Typography
                   component="h2"
                   variant="h6"
                   color="primary"
                   gutterBottom
+                  style={{marginBottom:"-6px"}}
+
                 >
-                  What is variance?
+                  Intepreting your results
                 </Typography>
+                <InfoIcon color="primary"/>
+
               </Paper>
             </Grid>
             {/* Recent Orders */}
