@@ -65,7 +65,7 @@ export default function DataAnalysis() {
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={5}>
-              <Paper elevation={3} style={{display:"flex", justifyContent:"space-between", height: "100%", padding: "12px" }}>
+              <Paper style={{display:"flex", justifyContent:"space-between", height: "100%", padding: "12px" }}>
 
                 <Typography
                   component="h2"

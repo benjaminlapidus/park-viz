@@ -13,6 +13,7 @@ import Chart from "./Chart";
 import ChooseVideo from "./ChooseVideo";
 import DataAnalysis from "./DataAnalysis";
 import VideoSquares from "./VideoSquares";
+import Summary from "./Summary";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
@@ -184,7 +185,7 @@ export default function HorizontalLinearStepper() {
         )}
 
         {activeStep === 2 && (
-          <div className={classes.root}></div>
+          <Summary />
         )}
 
         {activeStep === steps.length - 1 ? (
