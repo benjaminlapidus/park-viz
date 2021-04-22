@@ -23,8 +23,6 @@ import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Workflow from './Workflow';
-import Orders from './Orders';
-import SkeletonTest from './SkeletonTest';
 
 
 function Copyright() {
