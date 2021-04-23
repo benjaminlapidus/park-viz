@@ -10,34 +10,46 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import { Router, Route, Link } from "react-router-dom";
+import About from './About';
+import Support from './Support';
 
 export const mainListItems = (
   <div>
-    <ListItem button>
+
+    <ListItem button component={Link} to="/">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItem>
-    <ListItem button>
+
+    <ListItem button component={Link} to="/about">
       <ListItemIcon>
         <InfoIcon />
       </ListItemIcon>
       <ListItemText primary="About PARK test" />
     </ListItem>
-    <ListItem button>
+    <ListItem button component={Link} to="/support">
       <ListItemIcon>
         <HelpIcon />
       </ListItemIcon>
-      <ListItemText primary="Get support" />
+      <ListItemText primary="Support" />
+    </ListItem>
+    <ListItem button component={Link} to="/settings">
+      <ListItemIcon>
+        <HelpIcon />
+      </ListItemIcon>
+      <ListItemText primary="Settings" />
     </ListItem>
   </div>
 );
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader inset>My symptoms</ListSubheader>
-    <ListItem button>
+    <ListSubheader>Downloads</ListSubheader>
+    <ListSubheader inset>Symptom tracker</ListSubheader>
+    <ListItem inset button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>

@@ -14,15 +14,20 @@ import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
-import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
 import { mainListItems, secondaryListItems } from './listItems';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Chart from './Chart';
+import About from './About';
+import Support from './Support';
 import Workflow from './Workflow';
+
+import { createBrowserHistory } from "history";
+const history = createBrowserHistory();
 
 
 function Copyright() {
@@ -181,6 +186,7 @@ export default function Dashboard() {
           </Typography>
         </Toolbar>
       </AppBar>
+       <Router history={history}>
       <Drawer
         variant="permanent"
         className={clsx(classes.drawer, {
@@ -209,13 +215,17 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           {/* Recent Deposits */}
             <Grid lg={12}>
-                <Workflow/>
+                <Route exact path="/" component={Workflow} />
+                <Route exact path="/about" component={About} />
+                <Route exact path="/support" component={Support} />
             </Grid>
             <Box pt={4}>
             <Copyright />
           </Box>
         </Container>
       </main>
+          </Router>
+
     </div>
   );
 }
