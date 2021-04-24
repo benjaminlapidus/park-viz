@@ -215,7 +215,7 @@ export default function Dashboard() {
         <Container maxWidth="lg" className={classes.container}>
           {/* Recent Deposits */}
             <Grid lg={12}>
-                <Route exact path="/" component={Workflow} />
+                <Route exact path="/park-viz" component={Workflow} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/support" component={Support} />
             </Grid>

@@ -197,7 +197,7 @@ export default function HorizontalLinearStepper() {
               size="large"
               color="primary"
               aria-label="add"
-              onClick={handleNext}
+              onClick={handleReset}
               className={classes.fab}
             >
               Reset
@@ -213,11 +213,11 @@ export default function HorizontalLinearStepper() {
               size="large"
               color="primary"
               aria-label="add"
-              onClick={handleReset}
+              onClick={handleNext}
               className={classes.fab}
             >
-              Reset
-              <RotateLeftIcon />
+              Next
+              <NavigateNextIcon/>
             </Fab>
           </div>
         )}

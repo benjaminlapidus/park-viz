@@ -17,7 +17,7 @@ import Support from './Support';
 export const mainListItems = (
   <div>
 
-    <ListItem button component={Link} to="/">
+    <ListItem button component={Link} to="/park-viz">
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
