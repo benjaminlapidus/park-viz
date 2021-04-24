@@ -20,19 +20,19 @@ const useStyles = makeStyles({
   
 });
 
-function createData(actionUnit, variance, pValue) {
-  return { actionUnit, variance, pValue };
+function createData(actionUnit, variance, non_pd_variance, pValue) {
+  return { actionUnit, variance, non_pd_variance, pValue };
 }
 
 const rows = [
-  createData('(AU1) Inner Brow Raiser', .67, .05),
-  createData('(AU2) Outer Brow Raiser', .42, .05),
-  createData('(AU4) Brow Lowerer', .82, .05),
-  createData('(AU6) Cheek Raiser', .29, .05),
-  createData('(AU7) Lid Tightener', .34, .05),
-  createData('(AU9) Nose Wrinkler', .71, .05),
-  createData('(AU12) Lip Corner Puller', .77, .05),
-  createData('(AU45) Blink', .45, .05),
+  createData('(AU1) Inner Brow Raiser', .67, .12, .05),
+  createData('(AU2) Outer Brow Raiser', .42, .12,.05),
+  createData('(AU4) Brow Lowerer', .82, .12, .05),
+  createData('(AU6) Cheek Raiser', .29, .12, .05),
+  createData('(AU7) Lid Tightener', .34, .12, .05),
+  createData('(AU9) Nose Wrinkler', .71, .12, .05),
+  createData('(AU12) Lip Corner Puller', .77, .12, .05),
+  createData('(AU45) Blink', .45, .12, .05),
 ];
 
 const styles = (theme) => ({
@@ -92,6 +92,7 @@ export default function CustomizedDialogs(props) {
           <TableRow>
             <TableCell>Action Unit</TableCell>
             <TableCell>Variance</TableCell>
+            <TableCell>Non - PD Variance</TableCell>
             <TableCell align="right">p-value</TableCell>
           </TableRow>
         </TableHead>
@@ -101,7 +102,8 @@ export default function CustomizedDialogs(props) {
               <TableCell component="th" scope="row">
                 {row.actionUnit}
               </TableCell>
-              <TableCell>{row.variance}</TableCell>
+              <TableCell align="center">{row.variance}</TableCell>
+              <TableCell align="center">{row.non_pd_variance}</TableCell>
               <TableCell align="right">{row.pValue}</TableCell>
             </TableRow>
           ))}
