@@ -47,7 +47,6 @@ export const mainListItems = (
 
 export const secondaryListItems = (
   <div>
-    <ListSubheader>Downloads</ListSubheader>
     <ListSubheader inset>Symptom tracker</ListSubheader>
     <ListItem inset button>
       <ListItemIcon>
