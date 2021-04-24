@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/park-viz/static/css/main.997578ca.chunk.css",
+    "main.js": "/park-viz/static/js/main.b4e158b2.chunk.js",
+    "main.js.map": "/park-viz/static/js/main.b4e158b2.chunk.js.map",
+    "runtime-main.js": "/park-viz/static/js/runtime-main.5d0feb80.js",
+    "runtime-main.js.map": "/park-viz/static/js/runtime-main.5d0feb80.js.map",
+    "static/js/2.ebcfcbe4.chunk.js": "/park-viz/static/js/2.ebcfcbe4.chunk.js",
+    "static/js/2.ebcfcbe4.chunk.js.map": "/park-viz/static/js/2.ebcfcbe4.chunk.js.map",
+    "index.html": "/park-viz/index.html",
+    "static/css/main.997578ca.chunk.css.map": "/park-viz/static/css/main.997578ca.chunk.css.map",
+    "static/js/2.ebcfcbe4.chunk.js.LICENSE.txt": "/park-viz/static/js/2.ebcfcbe4.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d0feb80.js",
+    "static/js/2.ebcfcbe4.chunk.js",
+    "static/css/main.997578ca.chunk.css",
+    "static/js/main.b4e158b2.chunk.js"
+  ]
+}
