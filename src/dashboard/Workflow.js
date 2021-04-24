@@ -22,7 +22,6 @@ import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import Fab from "@material-ui/core/Fab";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-
 import clsx from "clsx";
 
 const useStyles = makeStyles((theme) => ({
@@ -83,8 +82,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 function getSteps() {
-  return ["Choose a video", "Break down your results", "Next steps"];
+  return ["Select a test", "Break down your results", "Next steps"];
 }
 
 function getStepContent(step) {
@@ -127,6 +128,7 @@ export default function HorizontalLinearStepper() {
     if (isStepSkipped(activeStep)) {
       newSkipped = new Set(newSkipped.values());
       newSkipped.delete(activeStep);
+      this.props.handleNext()
     }
 
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -177,7 +179,7 @@ export default function HorizontalLinearStepper() {
 
       <div>
         {activeStep === 0 && (
-          <ChooseVideo />
+          <ChooseVideo handleNext={handleNext} />
         )}
 
         {activeStep === 1 && (
@@ -188,7 +190,23 @@ export default function HorizontalLinearStepper() {
           <Summary />
         )}
 
-        {activeStep === steps.length - 1 ? (
+        {activeStep === steps.length - 1 && (
+           <div>
+            <Fab
+              variant="extended"
+              size="large"
+              color="primary"
+              aria-label="add"
+              onClick={handleNext}
+              className={classes.fab}
+            >
+              Reset
+              <RotateLeftIcon />
+            </Fab>
+          </div>
+        )}
+
+        {activeStep === 1 && (
            <div>
             <Fab
               variant="extended"
@@ -202,22 +220,9 @@ export default function HorizontalLinearStepper() {
               <RotateLeftIcon />
             </Fab>
           </div>
-        ) : (
-          <div>
-            <Fab
-              variant="extended"
-              size="large"
-              color="primary"
-              aria-label="add"
-              onClick={handleNext}
-              className={classes.fab}
-            >
-              Next
-              <NavigateNextIcon />
-            </Fab>
-          </div>
         )}
-      </div>
     </div>
+        </div>
+
   );
 }
