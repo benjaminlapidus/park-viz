@@ -6,6 +6,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import DashboardIcon from '@material-ui/icons/Dashboard';
 import InfoIcon from '@material-ui/icons/Info';
 import HelpIcon from '@material-ui/icons/Help';
+import SettingsIcon from '@material-ui/icons/Settings'
 import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
@@ -38,7 +39,7 @@ export const mainListItems = (
     </ListItem>
     <ListItem button component={Link} to="/settings">
       <ListItemIcon>
-        <HelpIcon />
+        <SettingsIcon />
       </ListItemIcon>
       <ListItemText primary="Settings" />
     </ListItem>
