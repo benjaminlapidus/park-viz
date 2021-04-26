@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -25,6 +25,7 @@ import Chart from './Chart';
 import About from './About';
 import Support from './Support';
 import Workflow from './Workflow';
+import CSVReader2 from './CSVReader2';
 
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
@@ -57,8 +58,6 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     justifyContent: 'flex-end',
     padding: '0 8px',
-    
-
   },
 
   content: {
@@ -147,6 +146,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// callbackFunction = (childData) => {
+//   this.setS
+// }
+
 export default function Dashboard() {
   const classes = useStyles();
   const theme = useTheme();
@@ -159,9 +162,12 @@ export default function Dashboard() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
+  var data = [1, 2, 3];
+  const [userData, setUserData] = useState([1, 2])
+
   return (
 
-       <div className={classes.root}>
+    <div className={classes.root}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -186,45 +192,47 @@ export default function Dashboard() {
           </Typography>
         </Toolbar>
       </AppBar>
-       <Router history={history}>
-      <Drawer
-        variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
-        classes={{
-          paper: clsx({
+      <Router history={history}>
+        <Drawer
+          variant="permanent"
+          className={clsx(classes.drawer, {
             [classes.drawerOpen]: open,
             [classes.drawerClose]: !open,
-          }),
-        }}
-      >
-        <div className={classes.toolbar}>
-          <IconButton onClick={handleDrawerClose}>
-            {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-          </IconButton>
-        </div>
-        <Divider />
-         <List>{mainListItems}</List>
-        <Divider />
-        <List>{secondaryListItems}</List>
-      </Drawer>
-      <main height="100%" className={classes.content}>
-        <div className={classes.appBarSpacer} />
-        <Container maxWidth="lg" className={classes.container}>
-          {/* Recent Deposits */}
+          })}
+          classes={{
+            paper: clsx({
+              [classes.drawerOpen]: open,
+              [classes.drawerClose]: !open,
+            }),
+          }}
+        >
+          <div className={classes.toolbar}>
+            <IconButton onClick={handleDrawerClose}>
+              {theme.direction === 'rtl' ? <ChevronRightIcon /> : <ChevronLeftIcon />}
+            </IconButton>
+          </div>
+          <Divider />
+          <List>{mainListItems}</List>
+          <Divider />
+          <List>{secondaryListItems}</List>
+        </Drawer>
+        <main height="100%" className={classes.content}>
+          <div className={classes.appBarSpacer} />
+          <Container maxWidth="lg" className={classes.container}>
+            {/* Recent Deposits */}
             <Grid lg={12}>
-                <Route exact path="/park-viz" component={Workflow} />
-                <Route exact path="/about" component={About} />
-                <Route exact path="/support" component={Support} />
+              <Route exact path="/park-viz" component={Workflow} />
+              <Route exact path="/about" component={About} />
+              <Route exact path="/support" component={Support} />
+              <CSVReader2 passUserData={setUserData}></CSVReader2>
+              {userData[0][0]}
             </Grid>
             <Box pt={4}>
-            <Copyright />
-          </Box>
-        </Container>
-      </main>
-          </Router>
+              <Copyright />
+            </Box>
+          </Container>
+        </main>
+      </Router>
 
     </div>
   );
