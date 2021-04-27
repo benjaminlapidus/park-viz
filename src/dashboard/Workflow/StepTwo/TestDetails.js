@@ -19,6 +19,7 @@ import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ReactPlayer from "react-player";
 import InfoIcon from '@material-ui/icons/Info';
 import clsx from "clsx";
+import Divider from '@material-ui/core/Divider';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -37,8 +38,6 @@ const useStyles = makeStyles((theme) => ({
     height: 225,
   },
 }));
-
-
 
 export default function TestDetails() {
   const classes = useStyles();
@@ -77,12 +76,17 @@ export default function TestDetails() {
                   Intepreting your results
                 </Typography>
                 <InfoIcon color="primary"/>
+                {"AU1, AU6 & AU12 are the most effective in capturing PD symptoms from facial expression. We want AU1 to be as low as possible, and AU6 & 12 to be as high as possible in order to not have PD."}
 
+                <Divider />
+
+              
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
+
                 <Chart />
               </Paper>
             </Grid>
