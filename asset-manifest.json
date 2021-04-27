@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/park-viz/static/css/main.997578ca.chunk.css",
-    "main.js": "/park-viz/static/js/main.03e47d02.chunk.js",
-    "main.js.map": "/park-viz/static/js/main.03e47d02.chunk.js.map",
+    "main.js": "/park-viz/static/js/main.b4bd29b3.chunk.js",
+    "main.js.map": "/park-viz/static/js/main.b4bd29b3.chunk.js.map",
     "runtime-main.js": "/park-viz/static/js/runtime-main.5d0feb80.js",
     "runtime-main.js.map": "/park-viz/static/js/runtime-main.5d0feb80.js.map",
-    "static/js/2.6c349e45.chunk.js": "/park-viz/static/js/2.6c349e45.chunk.js",
-    "static/js/2.6c349e45.chunk.js.map": "/park-viz/static/js/2.6c349e45.chunk.js.map",
+    "static/js/2.8e16a772.chunk.js": "/park-viz/static/js/2.8e16a772.chunk.js",
+    "static/js/2.8e16a772.chunk.js.map": "/park-viz/static/js/2.8e16a772.chunk.js.map",
     "index.html": "/park-viz/index.html",
     "static/css/main.997578ca.chunk.css.map": "/park-viz/static/css/main.997578ca.chunk.css.map",
-    "static/js/2.6c349e45.chunk.js.LICENSE.txt": "/park-viz/static/js/2.6c349e45.chunk.js.LICENSE.txt"
+    "static/js/2.8e16a772.chunk.js.LICENSE.txt": "/park-viz/static/js/2.8e16a772.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.5d0feb80.js",
-    "static/js/2.6c349e45.chunk.js",
+    "static/js/2.8e16a772.chunk.js",
     "static/css/main.997578ca.chunk.css",
-    "static/js/main.03e47d02.chunk.js"
+    "static/js/main.b4bd29b3.chunk.js"
   ]
 }
