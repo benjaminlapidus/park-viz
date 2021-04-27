@@ -76,7 +76,7 @@ const DialogActions = withStyles((theme) => ({
   },
 }))(MuiDialogActions);
 
-export default function CustomizedDialogs(props) {
+export default function InformationDialog(props) {
   const [open, setOpen] = React.useState(false);
   	const classes = useStyles();
 

@@ -1,5 +1,5 @@
 import './App.css';
-import Dashboard from'./dashboard/Dashboard.js'
+import Navigation from'./dashboard/Navigation/Navigation'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
@@ -18,7 +18,7 @@ const theme = createMuiTheme({
 function App() {
   return (
       <ThemeProvider theme={theme}>
-          <Dashboard />
+          <Navigation />
       </ThemeProvider>
     );
   }

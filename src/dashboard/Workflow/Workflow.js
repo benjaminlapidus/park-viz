@@ -6,14 +6,8 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepButton from "@material-ui/core/StepButton";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Workflow from "./Workflow";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-import Chart from "./Chart";
-import ChooseVideo from "./ChooseVideo";
-import DataAnalysis from "./DataAnalysis";
-import VideoSquares from "./VideoSquares";
-import Summary from "./Summary";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
@@ -23,6 +17,11 @@ import Box from "@material-ui/core/Box";
 import Fab from "@material-ui/core/Fab";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import clsx from "clsx";
+
+import SelectTest from "./StepOne/SelectTest";
+import TestDetails from "./StepTwo/TestDetails";
+import Summary from "./StepThree/Summary";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -102,7 +101,7 @@ function getStepContent(step) {
   }
 }
 
-export default function HorizontalLinearStepper() {
+export default function Workflow() {
   const classes = useStyles();
   const theme = useTheme();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -179,11 +178,11 @@ export default function HorizontalLinearStepper() {
 
       <div>
         {activeStep === 0 && (
-          <ChooseVideo handleNext={handleNext} />
+          <SelectTest handleNext={handleNext} />
         )}
 
         {activeStep === 1 && (
-          <DataAnalysis />
+          <TestDetails />
         )}
 
         {activeStep === 2 && (

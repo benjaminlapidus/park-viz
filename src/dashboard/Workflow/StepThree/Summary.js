@@ -2,11 +2,10 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
-import VideoSquares from "./VideoSquares";
 import Divider from '@material-ui/core/Divider';
 import clsx from "clsx";
 
-export default function ChooseVideo() {
+export default function Summary() {
 
   return (
       <div>

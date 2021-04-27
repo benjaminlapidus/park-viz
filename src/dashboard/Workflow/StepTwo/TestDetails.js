@@ -6,12 +6,9 @@ import StepLabel from "@material-ui/core/StepLabel";
 import StepButton from "@material-ui/core/StepButton";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import Workflow from "./Workflow";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import Chart from "./Chart";
-import ChooseVideo from "./ChooseVideo";
-import VideoSquares from "./VideoSquares";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -43,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-export default function DataAnalysis() {
+export default function TestDetails() {
   const classes = useStyles();
   const theme = useTheme();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);

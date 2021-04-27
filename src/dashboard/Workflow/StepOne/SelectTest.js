@@ -7,62 +7,79 @@ import {
 	GridToolbarExport,
 	GridFilterToolbarButton,
 } from "@material-ui/data-grid";
-import { makeStyles } from "@material-ui/core/styles";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
 import Box from "@material-ui/core/Box";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import InfoIcon from "@material-ui/icons/Info";
-import Dialog from '@material-ui/core/Dialog';
+import Dialog from "@material-ui/core/Dialog";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 import EqualizerOutlinedIcon from "@material-ui/icons/EqualizerOutlined";
+import Tooltip from "@material-ui/core/Tooltip";
 
-import InformationDialog from "./InformationDialog.js"
+import ListAltIcon from "@material-ui/icons/ListAlt";
+import WarningIcon from "@material-ui/icons/Warning";
+
+import InformationDialog from "./InformationDialog.js";
 
 function CustomToolbar() {
 	return (
-		<Box justifyContent="flex-end" width="100%" display="flex" p={1}>
-			<Box p={1}>
-				<GridToolbarContainer>
-					<Button
-						size="small"
-						style={{ marginRight: "16px" }}
-						color="primary"
-						startIcon={<EqualizerOutlinedIcon />}
-					>
-						Symptom Progression
-					</Button>
-					<GridToolbarExport />
-				</GridToolbarContainer>
+		<Box display="flex">
+			<Box
+				justifyContent="flex-start"
+				style={{ marginLeft: "12px" }}
+				width="100%"
+				display="flex"
+				p={1}
+			>
+				<Typography
+					component="h2"
+					variant="h6"
+					color="primary"
+					gutterBottom
+					style={{ marginBottom: "-6px" }}
+				>
+					Results by test
+				</Typography>
+			</Box>
+			<Box justifyContent="flex-end" width="100%" display="flex" p={1}>
+				<Box p={1}>
+					<GridToolbarContainer>
+						<Button
+							size="small"
+							style={{ marginRight: "16px" }}
+							color="primary"
+							variant="outlined"
+							startIcon={<ListAltIcon />}
+						>
+							Summary
+						</Button>
+						<GridToolbarExport />
+					</GridToolbarContainer>
+				</Box>
 			</Box>
 		</Box>
 	);
 }
 
 const useStyles = makeStyles((theme) => ({
-	root: {
-		flexDirection: "column",
-		"& .ant-empty-img-1": {
-			fill: theme.palette.type === "light" ? "#aeb8c2" : "#262626",
-		},
-		"& .ant-empty-img-2": {
-			fill: theme.palette.type === "light" ? "#f5f5f7" : "#595959",
-		},
-		"& .ant-empty-img-3": {
-			fill: theme.palette.type === "light" ? "#dce0e6" : "#434343",
-		},
-		"& .ant-empty-img-4": {
-			fill: theme.palette.type === "light" ? "#fff" : "#1c1c1c",
-		},
-		"& .ant-empty-img-5": {
-			fillOpacity: theme.palette.type === "light" ? "0.8" : "0.08",
-			fill: theme.palette.type === "light" ? "#f5f5f5" : "#fff",
-		},
-	},
+	root: {},
 	label: {
 		marginTop: theme.spacing(1),
 	},
 }));
+
+const HtmlTooltip = withStyles((theme) => ({
+	tooltip: {
+		backgroundColor: "#f5f5f9",
+		color: "rgba(0, 0, 0, 0.87)",
+		maxWidth: 220,
+		fontSize: theme.typography.pxToRem(12),
+		border: "1px solid #dadde9",
+	},
+}))(Tooltip);
 
 function CustomNoRowsOverlay() {
 	const classes = useStyles();
@@ -111,7 +128,7 @@ function CustomNoRowsOverlay() {
 					</g>
 				</g>
 			</svg>
-			<div className={classes.label}>No Rows</div>
+			<div className={classes.label}>No Tests</div>
 		</GridOverlay>
 	);
 }
@@ -138,40 +155,42 @@ export default function ToolbarGrid(props) {
 			},
 		},
 		{ field: "id", headerName: "ID", width: 120 },
-		{ field: "gender", headerName: "Gender", width: 120 },
-		{ field: "age", headerName: "Age", width: 120 },
-		{ field: "upload", headerName: "Upload Date", width: 200, flex: .5, },
-		{ field: "test", headerName: "Diagnostic Test", width: 150, flex: .5, },
+		{ field: "upload", headerName: "Upload Date", width: 200, flex: 0.5 },
+		{ field: "test", headerName: "Diagnostic Test", width: 150, flex: 0.5 },
 		{
 			field: "results",
 			flex: 1,
-			headerName: "Results (Variance)",
+			headerName: "Results",
 			renderCell: (params: CellParams) => {
-				const onClick = () => {
-					const api: GridApi = params.api;
-					const fields = api
-						.getAllColumns()
-						.map((c) => c.field)
-						.filter((c) => c !== "__check__" && !!c);
-					const thisRow = {};
-
-					fields.forEach((f) => {
-						thisRow[f] = params.getValue(f);
-					});
-
-					return alert(JSON.stringify(thisRow, null, 4));
-				};
-
 				return (
 					<Box width="100%" display="flex" p={1}>
-						<Box p={1}>
-							<b>.94</b>
-						</Box>
 						<Box p={1} flexGrow={1}>
-							<IconButton  onClick={() => {handleClickOpen()}} aria-label="info">
-								<InfoIcon color="disabled" fontSize="small" />
+							<HtmlTooltip
+								title={
+									<React.Fragment>
+										<Typography color="inherit" style={{marginBottom: "6px"}}>
+										We found some symptoms associated with Parkinson's disease.
+										</Typography>
+										{"Not to worry – this isn't a diagnosis. View your results to learn more."}
+									</React.Fragment>
+								}
+							>
+
+							<IconButton
+								onClick={() => {
+									handleClickOpen();
+								}}
+								aria-label="info"
+							>
+								<WarningIcon
+									color="secondary"
+									fontSize="medium"
+								/>
 							</IconButton>
+							</HtmlTooltip>
+							
 						</Box>
+						
 						<Box p={1}>
 							<Button
 								variant="contained"
@@ -277,7 +296,6 @@ export default function ToolbarGrid(props) {
 			upload: "4/20/21, 8:30 AM",
 		},
 
-
 		{
 			id: 51,
 			gender: "Male",
@@ -379,9 +397,15 @@ export default function ToolbarGrid(props) {
 				rows={rows}
 				columns={columns}
 			/>
-			<Dialog handleClose={handleClose} fullWidth onClose={handleClose} aria-labelledby="customized-dialog-title" open={open}>
-       <InformationDialog />
-      </Dialog>
+			<Dialog
+				handleClose={handleClose}
+				fullWidth
+				onClose={handleClose}
+				aria-labelledby="customized-dialog-title"
+				open={open}
+			>
+				<InformationDialog />
+			</Dialog>
 		</div>
 	);
 }

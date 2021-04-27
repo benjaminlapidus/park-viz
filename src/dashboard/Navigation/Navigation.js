@@ -19,13 +19,13 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import RotateLeftIcon from '@material-ui/icons/RotateLeft';
-import { mainListItems, secondaryListItems } from './listItems';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Chart from './Chart';
-import About from './About';
-import Support from './Support';
-import Workflow from './Workflow';
-import CSVReader2 from './CSVReader2';
+
+import About from '../About/About';
+import Support from '../Support/Support';
+import Workflow from '../Workflow/Workflow';
+import CSVReader2 from '../CSVReader2';
+import { mainListItems, secondaryListItems } from './listItems';
 
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
@@ -150,7 +150,7 @@ const useStyles = makeStyles((theme) => ({
 //   this.setS
 // }
 
-export default function Dashboard() {
+export default function Navigation() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
