@@ -391,6 +391,7 @@ export default function Chart() {
       <Title>Variance over time</Title>
       <ResponsiveContainer>
         <LineChart
+
           data={data}
           margin={{
             top: 16,
@@ -398,6 +399,7 @@ export default function Chart() {
             bottom: 0,
             left: 24,
           }}
+
         >
           <XAxis dataKey="time" stroke={theme.palette.text.secondary}/>
       
@@ -411,10 +413,10 @@ export default function Chart() {
           </YAxis>
           <Tooltip/>
           <Legend/>
-          <Line name="AU01" type="monotone" dataKey="first_au" dot={false} stroke={"red"} />
-          <Line name="AU06"type="monotone" dataKey="second_au" dot={false} stroke={"green"} />
-          <Line name="AU12"type="monotone" dataKey="third_au" dot={false} stroke={"blue"} />
-          <Line name="AU45" type="monotone" dataKey="fourth_au" dot={false} stroke={"orange"} />
+          <Line name="AU01" type="monotone" dataKey="first_au" dot={false} stroke={"red"} animationDuration={5000}/>
+          <Line name="AU06"type="monotone" dataKey="second_au" dot={false} stroke={"green"} animationDuration={5000}/>
+          <Line name="AU12"type="monotone" dataKey="third_au" dot={false} stroke={"blue"} animationDuration={5000}/>
+          <Line name="AU45" type="monotone" dataKey="fourth_au" dot={false} stroke={"orange"} animationDuration={5000}/>
           <ReferenceArea x1={'09:00'} x2={'12:00'} label="an important period" />
         </LineChart>
       </ResponsiveContainer>
