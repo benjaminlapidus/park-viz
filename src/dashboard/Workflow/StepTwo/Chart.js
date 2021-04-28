@@ -411,12 +411,11 @@ export default function Chart() {
             >
             </Label>
           </YAxis>
-          <Tooltip/>
           <Legend/>
-          <Line name="Eyebrows" type="monotone" dataKey="first_au" dot={false} stroke={"red"} animationDuration={5000}/>
-          <Line name="Cheeks"type="monotone" dataKey="second_au" dot={false} stroke={"green"} animationDuration={5000}/>
-          <Line name="Lips and mouth"type="monotone" dataKey="third_au" dot={false} stroke={"blue"} animationDuration={5000}/>
-          <Line name="Blink" type="monotone" dataKey="fourth_au" dot={false} stroke={"orange"} animationDuration={5000}/>
+          <Line name="Eyebrows" type="monotone" dataKey="first_au" dot={false} stroke={"red"} animationDuration={2500}/>
+          <Line name="Cheeks"type="monotone" dataKey="second_au" dot={false} stroke={"green"} animationDuration={2500}/>
+          <Line name="Lips and mouth"type="monotone" dataKey="third_au" dot={false} stroke={"blue"} animationDuration={2500}/>
+          <Line name="Blink" type="monotone" dataKey="fourth_au" dot={false} stroke={"orange"} animationDuration={2500}/>
           <ReferenceArea x1={'09:00'} x2={'12:00'} label="an important period" />
         </LineChart>
       </ResponsiveContainer>

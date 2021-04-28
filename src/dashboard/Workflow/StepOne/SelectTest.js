@@ -24,6 +24,16 @@ import WarningIcon from "@material-ui/icons/Warning";
 
 import InformationDialog from "./InformationDialog.js";
 
+let participant = [{
+	img: "https://picsum.photos/200",
+	id: 1,
+	first_name: "Lavern",
+	last_name: "Carnevale",
+	upload: "2018-12-10T13:49:51.141Z",
+	test: 12,
+	video: "2020-04-10T14-33-00-709Z71-task12.webm",
+}]
+
 function CustomToolbar() {
 	return (
 		<Box display="flex">
@@ -168,29 +178,33 @@ export default function ToolbarGrid(props) {
 							<HtmlTooltip
 								title={
 									<React.Fragment>
-										<Typography color="inherit" style={{marginBottom: "6px"}}>
-										We found some symptoms associated with Parkinson's disease.
+										<Typography
+											color="inherit"
+											style={{ marginBottom: "6px" }}
+										>
+											We found some symptoms associated
+											with Parkinson's disease.
 										</Typography>
-										{"Not to worry – this isn't a diagnosis. View your results to learn more."}
+										{
+											"Not to worry – this isn't a diagnosis. View your results to learn more."
+										}
 									</React.Fragment>
 								}
 							>
-
-							<IconButton
-								onClick={() => {
-									handleClickOpen();
-								}}
-								aria-label="info"
-							>
-								<WarningIcon
-									color="secondary"
-									fontSize="medium"
-								/>
-							</IconButton>
+								<IconButton
+									onClick={() => {
+										handleClickOpen();
+									}}
+									aria-label="info"
+								>
+									<WarningIcon
+										color="secondary"
+										fontSize="medium"
+									/>
+								</IconButton>
 							</HtmlTooltip>
-							
 						</Box>
-						
+
 						<Box p={1}>
 							<Button
 								variant="contained"
@@ -394,7 +408,7 @@ export default function ToolbarGrid(props) {
 					NoRowsOverlay: CustomNoRowsOverlay,
 					Toolbar: CustomToolbar,
 				}}
-				rows={rows}
+				rows={participant}
 				columns={columns}
 			/>
 			<Dialog

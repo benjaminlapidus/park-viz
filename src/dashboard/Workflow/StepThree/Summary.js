@@ -4,34 +4,34 @@ import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import Divider from '@material-ui/core/Divider';
 import clsx from "clsx";
-import { ResponsiveContainer, Legend } from 'recharts';
-import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
-import { LineChart, Line, BarChart, Bar, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+// import { ResponsiveContainer, Legend } from 'recharts';
+// import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis } from 'recharts';
+// import { LineChart, Line, BarChart, Bar, PieChart, Pie, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
 
 
-const data = [
-  {
-    "subject": "AU1",
-    "A": 0.059371002216709365,
-    "nonPD": 0.07,
-    "PD": 0.15,
-    "fullMark": 0.15
-  },
-  {
-    "subject": "AU6",
-    "A": 0.2523954753748953,
-    "nonPD": 0.25,
-    "PD": 0.17,
-    "fullMark": 0.15
-  },
-  {
-    "subject": "AU12",
-    "A": 0.48213700893049927,
-    "nonPD": 0.27,
-    "PD": 0.21,
-    "fullMark": 0.15
-  }
-]
+// const data = [
+//   {
+//     "subject": "AU1",
+//     "A": 0.059371002216709365,
+//     "nonPD": 0.07,
+//     "PD": 0.15,
+//     "fullMark": 0.15
+//   },
+//   {
+//     "subject": "AU6",
+//     "A": 0.2523954753748953,
+//     "nonPD": 0.25,
+//     "PD": 0.17,
+//     "fullMark": 0.15
+//   },
+//   {
+//     "subject": "AU12",
+//     "A": 0.48213700893049927,
+//     "nonPD": 0.27,
+//     "PD": 0.21,
+//     "fullMark": 0.15
+//   }
+// ]
 
 export default function Summary() {
 
@@ -52,7 +52,7 @@ export default function Summary() {
                   Intepreting your results
                 </Typography>
               
-                <RadarChart outerRadius={90} width={730} height={250} data={data}>
+                {/*<RadarChart outerRadius={90} width={730} height={250} data={data}>
                   <PolarGrid />
                   <PolarAngleAxis dataKey="subject" />
                   <PolarRadiusAxis angle={30} domain={[0, 0.15]} />
@@ -60,7 +60,7 @@ export default function Summary() {
                   <Radar name="non-PD Average" dataKey="nonPD" stroke="#82CA9D" fill="#82CA9D" fillOpacity={0.6} />
                   <Radar name="PD Average" dataKey="PD" stroke="#ffa500" fill="#ffa500" fillOpacity={0.6} />
                   <Legend />
-                </RadarChart>
+                </RadarChart>*/}
 
               </Paper>
             </Grid>

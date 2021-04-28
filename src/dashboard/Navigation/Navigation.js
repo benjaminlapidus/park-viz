@@ -224,8 +224,8 @@ export default function Navigation() {
               <Route exact path="/park-viz" component={Workflow} />
               <Route exact path="/park-viz/about" component={About} />
               <Route exact path="/park-viz/support" component={Support} />
-              <CSVReader2 passUserData={setUserData}></CSVReader2>
-              {userData[0][0]}
+            {/*  <CSVReader2 passUserData={setUserData}></CSVReader2>
+              {userData[0][0]}*/}
             </Grid>
             <Box pt={4}>
               <Copyright />
