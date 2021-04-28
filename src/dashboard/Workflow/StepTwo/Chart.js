@@ -388,7 +388,7 @@ export default function Chart() {
 
   return (
     <React.Fragment width="200px" height="200px">
-      <Title>Variance over time</Title>
+      <Title>Facial muscle intensity</Title>
       <ResponsiveContainer>
         <LineChart
 
@@ -413,10 +413,10 @@ export default function Chart() {
           </YAxis>
           <Tooltip/>
           <Legend/>
-          <Line name="AU01" type="monotone" dataKey="first_au" dot={false} stroke={"red"} animationDuration={5000}/>
-          <Line name="AU06"type="monotone" dataKey="second_au" dot={false} stroke={"green"} animationDuration={5000}/>
-          <Line name="AU12"type="monotone" dataKey="third_au" dot={false} stroke={"blue"} animationDuration={5000}/>
-          <Line name="AU45" type="monotone" dataKey="fourth_au" dot={false} stroke={"orange"} animationDuration={5000}/>
+          <Line name="Eyebrows" type="monotone" dataKey="first_au" dot={false} stroke={"red"} animationDuration={5000}/>
+          <Line name="Cheeks"type="monotone" dataKey="second_au" dot={false} stroke={"green"} animationDuration={5000}/>
+          <Line name="Lips and mouth"type="monotone" dataKey="third_au" dot={false} stroke={"blue"} animationDuration={5000}/>
+          <Line name="Blink" type="monotone" dataKey="fourth_au" dot={false} stroke={"orange"} animationDuration={5000}/>
           <ReferenceArea x1={'09:00'} x2={'12:00'} label="an important period" />
         </LineChart>
       </ResponsiveContainer>

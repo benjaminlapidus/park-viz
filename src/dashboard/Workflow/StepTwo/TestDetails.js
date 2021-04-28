@@ -17,9 +17,9 @@ import Box from "@material-ui/core/Box";
 import Fab from "@material-ui/core/Fab";
 import NavigateNextIcon from "@material-ui/icons/NavigateNext";
 import ReactPlayer from "react-player";
-import InfoIcon from '@material-ui/icons/Info';
+import InfoIcon from "@material-ui/icons/Info";
 import clsx from "clsx";
-import Divider from '@material-ui/core/Divider';
+import Divider from "@material-ui/core/Divider";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -63,30 +63,44 @@ export default function TestDetails() {
             </Grid>
             {/* Recent Deposits */}
             <Grid item xs={5}>
-              <Paper style={{display:"flex", justifyContent:"space-between", height: "100%", padding: "12px" }}>
-
-                <Typography
-                  component="h2"
-                  variant="h6"
-                  color="primary"
-                  gutterBottom
-                  style={{marginBottom:"-6px"}}
-
+              <Paper style={{ padding: "12px", height: "100%" }}>
+                <Box
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    marginBottom: "12px",
+                  }}
                 >
-                  Intepreting your results
+                  <Typography
+                    component="h2"
+                    variant="h6"
+                    color="primary"
+                    gutterBottom
+                    style={{ marginBottom: "-6px" }}
+                  >
+                    Intepreting your results
+                  </Typography>
+
+                  <Divider />
+                </Box>
+
+                <Typography>
+                  Parkinson's disease targets the nervous system. As a result, individuals with Parkinson's disease may have greater difficulty in controlling their facial movements.</Typography>
+                  <br />
+                  <Typography>
+                   This test measured the intensity of different muscle groups in your face as you tightened them.
                 </Typography>
-                <InfoIcon color="primary"/>
-                {"AU1, AU6 & AU12 are the most effective in capturing PD symptoms from facial expression. We want AU1 to be as low as possible, and AU6 & 12 to be as high as possible in order to not have PD."}
-
-                <Divider />
-
-              
+                <br />
+                  <Typography>
+                   The chart below captures these different muscle groups, and illustrates the intensity with which you can control them. 
+                   Individuals with Parkinson's disease may find that they have steeper inclines and declines due to their degraded control over their nervous system.
+                </Typography>
               </Paper>
             </Grid>
             {/* Recent Orders */}
             <Grid item xs={12}>
               <Paper className={fixedHeightPaper}>
-
                 <Chart />
               </Paper>
             </Grid>
