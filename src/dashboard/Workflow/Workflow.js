@@ -186,7 +186,7 @@ export default function Workflow() {
         {activeStep === 0 && (
           <div>
             <CSVReader2 passUserData={setUserData} />
-            <SelectTest handleNext={handleNext} />
+            <SelectTest handleNext={handleNext} sendData={userData} />
           </div>
         )}
 
