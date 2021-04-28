@@ -24,7 +24,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import About from '../About/About';
 import Support from '../Support/Support';
 import Workflow from '../Workflow/Workflow';
-import CSVReader2 from '../CSVReader2';
+import CSVReader2 from '../Workflow/CSVReader2';
 import { mainListItems, secondaryListItems } from './listItems';
 
 import { createBrowserHistory } from "history";
@@ -162,9 +162,6 @@ export default function Navigation() {
   };
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
 
-  var data = [1, 2, 3];
-  const [userData, setUserData] = useState([1, 2])
-
   return (
 
     <div className={classes.root}>
@@ -224,8 +221,6 @@ export default function Navigation() {
               <Route exact path="/park-viz" component={Workflow} />
               <Route exact path="/park-viz/about" component={About} />
               <Route exact path="/park-viz/support" component={Support} />
-            {/*  <CSVReader2 passUserData={setUserData}></CSVReader2>
-              {userData[0][0]}*/}
             </Grid>
             <Box pt={4}>
               <Copyright />

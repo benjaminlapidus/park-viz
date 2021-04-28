@@ -22,6 +22,8 @@ import SelectTest from "./StepOne/SelectTest";
 import TestDetails from "./StepTwo/TestDetails";
 import Summary from "./StepThree/Summary";
 
+import CSVReader2 from './CSVReader2';
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -157,6 +159,8 @@ export default function Workflow() {
     setActiveStep(0);
   };
 
+  const [userData, setUserData] = React.useState([1, 2])
+
   return (
     <div className={classes.root}>
       <Stepper
@@ -177,6 +181,8 @@ export default function Workflow() {
       </Stepper>
 
       <div>
+        {/* {userData[0][0]} */}
+
         {activeStep === 0 && (
           <SelectTest handleNext={handleNext} />
         )}
@@ -190,7 +196,7 @@ export default function Workflow() {
         )}
 
         {activeStep === steps.length - 1 && (
-           <div>
+          <div>
             <Fab
               variant="extended"
               size="large"
@@ -206,7 +212,7 @@ export default function Workflow() {
         )}
 
         {activeStep === 1 && (
-           <div>
+          <div>
             <Fab
               variant="extended"
               size="large"
@@ -216,12 +222,12 @@ export default function Workflow() {
               className={classes.fab}
             >
               Next
-              <NavigateNextIcon/>
+              <NavigateNextIcon />
             </Fab>
           </div>
         )}
+      </div>
     </div>
-        </div>
 
   );
 }
