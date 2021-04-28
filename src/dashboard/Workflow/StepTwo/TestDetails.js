@@ -93,8 +93,8 @@ export default function TestDetails() {
                 </Typography>
                 <br />
                   <Typography>
-                   The chart below captures these different muscle groups, and illustrates the intensity with which you can control them. 
-                   Individuals with Parkinson's disease may find that they have steeper inclines and declines due to their degraded control over their nervous system.
+                   The facial muscle intensity chart illustrates your facial muscle groups, and plots the intensity with which you can control them.  
+                  <b> Individuals with Parkinson's disease may find that they have steeper slopes due to their degraded control over their nervous system.</b>
                 </Typography>
               </Paper>
             </Grid>

@@ -1,7 +1,10 @@
 import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
+import Box from "@material-ui/core/Box";
 import Typography from "@material-ui/core/Typography";
+import { makeStyles, useTheme } from "@material-ui/core/styles";
+import Chart from "./Chart";
 import Divider from '@material-ui/core/Divider';
 import clsx from "clsx";
 // import { ResponsiveContainer, Legend } from 'recharts';
@@ -33,14 +36,41 @@ import clsx from "clsx";
 //   }
 // ]
 
-export default function Summary() {
+const useStyles = makeStyles((theme) => ({
+  root: {
+    width: "100%",
+  },
+  button: {
+    marginRight: theme.spacing(1),
+  },
+  paper: {
+    padding: theme.spacing(2),
+    display: "flex",
+    overflow: "auto",
+    flexDirection: "column",
+  },
+  fixedHeight: {
+    height: 500,
+  },
+}));
 
+export default function Summary() {
+  const classes = useStyles();
+  const theme = useTheme();
+  const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   return (
       <div>
           <Grid container spacing={1}>
            <Grid item xs={7}>
-              <Paper style={{display:"flex", justifyContent:"space-between", height: "100%", padding: "12px" }}>
-
+               <Paper className={fixedHeightPaper} style={{paddingBottom: "24px"}}>
+                <Box
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    marginBottom: "12px",
+                  }}
+                >
                 <Typography
                   component="h2"
                   variant="h6"
@@ -51,6 +81,9 @@ export default function Summary() {
                 >
                   Intepreting your results
                 </Typography>
+                </Box>
+
+                <Chart />
               
                 {/*<RadarChart outerRadius={90} width={730} height={250} data={data}>
                   <PolarGrid />
