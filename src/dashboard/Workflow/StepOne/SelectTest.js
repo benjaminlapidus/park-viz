@@ -144,8 +144,23 @@ function CustomNoRowsOverlay() {
 }
 
 export default function ToolbarGrid(props) {
+	const data = props.sendData
 	const [open, setOpen] = React.useState(false);
 	const classes = useStyles();
+
+	var people = [];
+	for (var i = 0; i < data.length; i++) {
+		people[i] = {
+			id: data[i][0],
+			gender: data[i][1],
+			age: data[i][2],
+			test: data[i][3],
+			upload: data[i][4]
+		};
+	}
+
+	// const data2 = zip(data[0], data[1])
+	console.log(people)
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -408,7 +423,7 @@ export default function ToolbarGrid(props) {
 					NoRowsOverlay: CustomNoRowsOverlay,
 					Toolbar: CustomToolbar,
 				}}
-				rows={participant}
+				rows={people}
 				columns={columns}
 			/>
 			<Dialog

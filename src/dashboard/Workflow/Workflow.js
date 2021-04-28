@@ -159,7 +159,7 @@ export default function Workflow() {
     setActiveStep(0);
   };
 
-  const [userData, setUserData] = React.useState([1, 2])
+  const [userData, setUserData] = React.useState()
 
   return (
     <div className={classes.root}>
@@ -181,12 +181,12 @@ export default function Workflow() {
       </Stepper>
 
       <div>
-        {/* {userData[0][0]} */}
-
         {activeStep === 0 && (
           <div>
-            <CSVReader2 passUserData={setUserData} />
-            <SelectTest handleNext={handleNext} sendData={userData} />
+            {!userData ?
+              <CSVReader2 passUserData={setUserData} /> :
+              <SelectTest handleNext={handleNext} sendData={userData} />
+            }
           </div>
         )}
 
