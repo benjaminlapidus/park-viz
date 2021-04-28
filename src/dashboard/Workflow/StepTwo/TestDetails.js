@@ -39,7 +39,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function TestDetails() {
+export default function TestDetails(props) {
+  const id = props.sendId;
+  const data = props.sendData;
+  console.log(id);
+  console.log(data);
+
   const classes = useStyles();
   const theme = useTheme();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
@@ -87,13 +92,13 @@ export default function TestDetails() {
 
                 <Typography>
                   Parkinson's disease targets the nervous system. As a result, individuals with Parkinson's disease may have greater difficulty in controlling their facial movements.</Typography>
-                  <br />
-                  <Typography>
-                   This test measured the intensity of different muscle groups in your face as you tightened them.
+                <br />
+                <Typography>
+                  This test measured the intensity of different muscle groups in your face as you tightened them.
                 </Typography>
                 <br />
-                  <Typography>
-                   The facial muscle intensity chart illustrates your facial muscle groups, and plots the intensity with which you can control them.  
+                <Typography>
+                  The facial muscle intensity chart illustrates your facial muscle groups, and plots the intensity with which you can control them.
                   <b> Individuals with Parkinson's disease may find that they have steeper slopes due to their degraded control over their nervous system.</b>
                 </Typography>
               </Paper>

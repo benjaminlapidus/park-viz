@@ -160,6 +160,7 @@ export default function Workflow() {
   };
 
   const [userData, setUserData] = React.useState()
+  const [userId, setUserId] = React.useState()
 
   return (
     <div className={classes.root}>
@@ -185,17 +186,17 @@ export default function Workflow() {
           <div>
             {!userData ?
               <CSVReader2 passUserData={setUserData} /> :
-              <SelectTest handleNext={handleNext} sendData={userData} />
+              <SelectTest handleNext={handleNext} sendData={userData} passUserId={setUserId} />
             }
           </div>
         )}
 
         {activeStep === 1 && (
-          <TestDetails />
+          <TestDetails sendData={userData} sendId={userId} />
         )}
 
         {activeStep === 2 && (
-          <Summary />
+          <Summary sendData={userData} sendId={userId} />
         )}
 
         {activeStep === steps.length - 1 && (

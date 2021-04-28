@@ -26,14 +26,15 @@ export default function CSVReader2(props) {
 
     return (
         <>
-            <h5>Click and Drag Upload</h5>
             <CSVReader
                 onDrop={handleOnDrop}
                 onError={handleOnError}
                 addRemoveButton
                 onRemoveFile={handleOnRemoveFile}
             >
-                <span>Drop CSV file here or click to upload.</span>
+                <h1></h1>
+                <h4>Drop CSV file here or click to upload.</h4>
+                <h1></h1>
             </CSVReader>
         </>
     );

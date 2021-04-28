@@ -54,38 +54,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Summary() {
+export default function Summary(props) {
+  const id = props.sendId;
+  const data = props.sendData;
+  console.log(id);
+  console.log(data);
+
   const classes = useStyles();
   const theme = useTheme();
   const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
   return (
-      <div>
-          <Grid container spacing={1}>
-           <Grid item xs={7}>
-               <Paper className={fixedHeightPaper} style={{paddingBottom: "24px"}}>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    marginBottom: "12px",
-                  }}
-                >
-                <Typography
-                  component="h2"
-                  variant="h6"
-                  color="primary"
-                  gutterBottom
-                  style={{marginBottom:"-6px"}}
+    <div>
+      <Grid container spacing={1}>
+        <Grid item xs={7}>
+          <Paper className={fixedHeightPaper} style={{ paddingBottom: "24px" }}>
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+                marginBottom: "12px",
+              }}
+            >
+              <Typography
+                component="h2"
+                variant="h6"
+                color="primary"
+                gutterBottom
+                style={{ marginBottom: "-6px" }}
 
-                >
-                  Intepreting your results
-                </Typography>
-                </Box>
+              >
+                Intepreting your results
+              </Typography>
+            </Box>
 
-                <Chart />
-              
-                {/*<RadarChart outerRadius={90} width={730} height={250} data={data}>
+            <Chart />
+
+            {/*<RadarChart outerRadius={90} width={730} height={250} data={data}>
                   <PolarGrid />
                   <PolarAngleAxis dataKey="subject" />
                   <PolarRadiusAxis angle={30} domain={[0, 0.15]} />
@@ -95,35 +100,35 @@ export default function Summary() {
                   <Legend />
                 </RadarChart>*/}
 
-              </Paper>
-            </Grid>
-          <Grid item xs={5}>
-              <Paper style={{padding: "12px"}} >
+          </Paper>
+        </Grid>
+        <Grid item xs={5}>
+          <Paper style={{ padding: "12px" }} >
 
-                <Typography
-                  component="h1"
-                  variant="h6"
-                  color="primary"
-                  gutterBottom
+            <Typography
+              component="h1"
+              variant="h6"
+              color="primary"
+              gutterBottom
 
-                >
-                  Raw test results
+            >
+              Raw test results
                 </Typography>
-                <Typography
-                  component="subtitle"
-                  variant="subtitle"
-                  color="text.secondary"
-                  style={{width:"100%", textAlign: "left"}}
-                >
-                  For physicians and clinicians
+            <Typography
+              component="subtitle"
+              variant="subtitle"
+              color="text.secondary"
+              style={{ width: "100%", textAlign: "left" }}
+            >
+              For physicians and clinicians
                 </Typography>
-                <Divider />
-               
+            <Divider />
 
-              </Paper>
-            </Grid>
-           
-          </Grid>
+
+          </Paper>
+        </Grid>
+
+      </Grid>
     </div>
   );
 }
@@ -145,7 +150,7 @@ export default function Summary() {
 //           }}
 //         >
 //           <XAxis dataKey="time" stroke={theme.palette.text.secondary}/>
-      
+
 //           <YAxis type="number" domain={[0, 'dataMax']} stroke={theme.palette.text.secondary}>
 //             <Label
 //               angle={270}

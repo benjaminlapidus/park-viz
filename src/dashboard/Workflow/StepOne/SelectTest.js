@@ -145,6 +145,7 @@ function CustomNoRowsOverlay() {
 
 export default function ToolbarGrid(props) {
 	const data = props.sendData
+	const [id, setId] = React.useState();
 	const [open, setOpen] = React.useState(false);
 	const classes = useStyles();
 
@@ -159,8 +160,7 @@ export default function ToolbarGrid(props) {
 		};
 	}
 
-	// const data2 = zip(data[0], data[1])
-	console.log(people)
+	// console.log(people)
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -425,6 +425,10 @@ export default function ToolbarGrid(props) {
 				}}
 				rows={people}
 				columns={columns}
+				onRowOver={(e) => {
+					setId(e.id);
+					props.passUserId(id)
+				}}
 			/>
 			<Dialog
 				handleClose={handleClose}
@@ -433,7 +437,7 @@ export default function ToolbarGrid(props) {
 				aria-labelledby="customized-dialog-title"
 				open={open}
 			>
-				<InformationDialog />
+				<InformationDialog sendData={data} sendId={id} />
 			</Dialog>
 		</div>
 	);
