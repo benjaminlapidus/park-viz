@@ -184,7 +184,10 @@ export default function Workflow() {
         {/* {userData[0][0]} */}
 
         {activeStep === 0 && (
-          <SelectTest handleNext={handleNext} />
+          <div>
+            <CSVReader2 passUserData={setUserData} />
+            <SelectTest handleNext={handleNext} />
+          </div>
         )}
 
         {activeStep === 1 && (
