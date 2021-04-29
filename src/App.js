@@ -3,6 +3,7 @@ import Navigation from'./dashboard/Navigation/Navigation'
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 
+localStorage.setItem('firstTime', true)
 const theme = createMuiTheme({
   typography: {
     fontFamily: [

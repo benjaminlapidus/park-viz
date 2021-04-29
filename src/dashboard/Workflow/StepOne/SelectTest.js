@@ -19,7 +19,10 @@ import Dialog from "@material-ui/core/Dialog";
 import AssignmentOutlinedIcon from "@material-ui/icons/AssignmentOutlined";
 import EqualizerOutlinedIcon from "@material-ui/icons/EqualizerOutlined";
 import Tooltip from "@material-ui/core/Tooltip";
-
+import MuiDialogTitle from '@material-ui/core/DialogTitle';
+import MuiDialogContent from '@material-ui/core/DialogContent';
+import MuiDialogActions from '@material-ui/core/DialogActions';
+import CloseIcon from '@material-ui/icons/Close';
 import ListAltIcon from "@material-ui/icons/ListAlt";
 import WarningIcon from "@material-ui/icons/Warning";
 
@@ -35,45 +38,20 @@ let participant = [{
 	video: "2020-04-10T14-33-00-709Z71-task12.webm",
 }]
 
-function CustomToolbar() {
-	return (
-		<Box display="flex">
-			<Box
-				justifyContent="flex-start"
-				style={{ marginLeft: "12px" }}
-				width="100%"
-				display="flex"
-				p={1}
-			>
-				<Typography
-					component="h2"
-					variant="h6"
-					color="primary"
-					gutterBottom
-					style={{ marginBottom: "-6px" }}
-				>
-					Results by test
-				</Typography>
-			</Box>
-			<Box justifyContent="flex-end" width="100%" display="flex" p={1}>
-				<Box p={1}>
-					<GridToolbarContainer>
-						<Button
-							size="small"
-							style={{ marginRight: "16px" }}
-							color="primary"
-							variant="outlined"
-							startIcon={<ListAltIcon />}
-						>
-							Summary
-						</Button>
-						<GridToolbarExport />
-					</GridToolbarContainer>
-				</Box>
-			</Box>
-		</Box>
-	);
-}
+const styles = (theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(2),
+  },
+  closeButton: {
+    position: 'absolute',
+    right: theme.spacing(1),
+    top: theme.spacing(1),
+    color: theme.palette.grey[500],
+  },
+});
+
+
 
 const useStyles = makeStyles((theme) => ({
 	root: {},
@@ -176,6 +154,47 @@ export default function ToolbarGrid(props) {
 
 	const [modalStyle] = React.useState(getModalStyle);
 
+	const CustomToolbar = withStyles(styles)((props) => {
+	return (
+		<Box display="flex">
+			<Box
+				justifyContent="flex-start"
+				style={{ marginLeft: "12px" }}
+				width="100%"
+				display="flex"
+				p={1}
+			>
+				<Typography
+					component="h2"
+					variant="h6"
+					color="primary"
+					gutterBottom
+					style={{ marginBottom: "-6px" }}
+				>
+					Results by test
+				</Typography>
+			</Box>
+			<Box justifyContent="flex-end" width="100%" display="flex" p={1}>
+				<Box p={1}>
+					<GridToolbarContainer>
+						<Button
+							size="small"
+							style={{ marginRight: "16px" }}
+							color="primary"
+							variant="outlined"
+							startIcon={<ListAltIcon />}
+							onClick={e => (setOpen2(true))}
+						>
+							Summary
+						</Button>
+						<GridToolbarExport />
+					</GridToolbarContainer>
+				</Box>
+			</Box>
+		</Box>
+	);
+});
+
 	var people = [];
 	var diagnose = 0;
 	for (var i = 0; i < data.length; i++) {
@@ -189,18 +208,6 @@ export default function ToolbarGrid(props) {
 		diagnose = diagnose + parseInt(data[i][10])
 	}
 
-	var body = (
-		<div style={modalStyle} className={classes2.paper}>
-			<h2 id="simple-modal-title">Your results are in!</h2>
-			<p id="simple-modal-description">
-				{diagnose} out of 3 tests showed symptoms of Parkinson's
-		  	</p>
-			<p id="simple-modal-description">
-				Click to find out more
-		  	</p>
-		</div>
-	);
-
 	const handleClickOpen = () => {
 		setOpen(true);
 	};
@@ -212,6 +219,33 @@ export default function ToolbarGrid(props) {
 	const handleClose2 = () => {
 		setOpen2(false);
 	};
+
+	const DialogContent = withStyles((theme) => ({
+  root: {
+    padding: theme.spacing(2),
+  },
+}))(MuiDialogContent);
+
+const DialogActions = withStyles((theme) => ({
+  root: {
+    margin: 0,
+    padding: theme.spacing(1),
+  },
+}))(MuiDialogActions);
+
+const DialogTitle = withStyles(styles)((props) => {
+  const { children, classes, onClose, ...other } = props;
+  return (
+    <MuiDialogTitle disableTypography className={classes.root} {...other}>
+      <Typography variant="h6">{children}</Typography>
+      {onClose ? (
+        <IconButton aria-label="close" className={classes.closeButton} onClick={handleClose2}>
+          <CloseIcon />
+        </IconButton>
+      ) : null}
+    </MuiDialogTitle>
+  );
+});
 
 	const columns = [
 		{
@@ -456,14 +490,45 @@ export default function ToolbarGrid(props) {
 
 	return (
 		<div style={{ height: 550, width: "100%" }}>
-			<Modal
+
+
+
+ <Dialog onClose={handleClose2} aria-labelledby="customized-dialog-title" open={open2}>
+        <DialogTitle id="customized-dialog-title" onClose={handleClose}>
+         Your diagnostic screening is complete.
+        </DialogTitle>
+        <DialogContent dividers>
+          <Typography gutterBottom>
+           {diagnose} out of 3 tests showed symptoms associated with Parkinson's disease.
+          </Typography>
+          <Typography style={{marginTop: "12px"}} gutterBottom>
+            This is not a diagnosis of Parkinson's disease, but we strongly recommend contacting your physician for a follow-up.
+          </Typography>
+        </DialogContent>
+        <DialogActions>
+          <Button autoFocus variant={'contained'} onClick={handleClose2} color="primary">
+            View full results
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+
+
+
+
+
+
+
+
+
+			{/*<Modal
 				open={open2}
 				onClose={handleClose2}
 				aria-labelledby="simple-modal-title"
 				aria-describedby="simple-modal-description"
 			>
 				{body}
-			</Modal>
+			</Modal>*/}
 			<DataGrid
 				pageSize={5}
 				rowsPerPageOptions={[5, 15, 30]}
@@ -489,7 +554,9 @@ export default function ToolbarGrid(props) {
 				aria-labelledby="customized-dialog-title"
 				open={open}
 			>
+
 				<InformationDialog sendData={data} sendId={id} />
+			}
 			</Dialog>
 		</div>
 	);

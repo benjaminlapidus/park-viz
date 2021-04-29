@@ -109,7 +109,7 @@ export default function TestDetails(props) {
                     gutterBottom
                     style={{ marginBottom: "-6px" }}
                   >
-                    Intepreting your results
+                    Understanding this test
                   </Typography>
 
                   <Divider />
@@ -119,13 +119,13 @@ export default function TestDetails(props) {
                   Parkinson's disease targets the nervous system. As a result, individuals with Parkinson's disease may have greater difficulty in controlling their facial movements.</Typography>
                 <br />
                 <Typography>
-                  This test measured the intensity of different muscle groups in your face as you tightened them.
+                  Using your videos to track key points on your face, we can calculate how strongly you can control different muscle groups in your face.
                 </Typography>
                 <br />
-                <Typography>
-                  The facial muscle intensity chart illustrates your facial muscle groups, and plots the intensity with which you can control them.
-                  <b> Individuals with Parkinson's disease may find that they have steeper slopes due to their degraded control over their nervous system.</b>
+                 <Typography>
+                  The line chart below shows point-tracking in action. <b>Check out how your facial muscle groups were stressed throughout your test.</b>
                 </Typography>
+               
               </Paper>
             </Grid>
             {/* Recent Orders */}

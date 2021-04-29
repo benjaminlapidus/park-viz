@@ -411,6 +411,7 @@ export default function Chart() {
             >
             </Label>
           </YAxis>
+          <Tooltip />
           <Legend/>
           <Line name="Eyebrows" type="monotone" dataKey="first_au" dot={false} stroke={"red"} animationDuration={2500}/>
           <Line name="Cheeks"type="monotone" dataKey="second_au" dot={false} stroke={"green"} animationDuration={2500}/>

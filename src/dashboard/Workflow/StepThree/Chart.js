@@ -16,32 +16,35 @@ import {
 const data = [
   {
     name: 'Eyebrows',
-    Results: 800,
-    ParkAvg: 490,
-    HealthyAvg: 100,
+    ParkAvg: .07,
+    HealthyAvg: .15,
+    Results: 0.07465582580438952,
+
   },
   {
     name: 'Cheeks',
-    Results: 967,
-    ParkAvg: 590,
-    HealthyAvg: 100,
+    ParkAvg: .25,
+    HealthyAvg: .17,
+    Results: 0.2523954753748953   ,
   },
   {
     name: 'Lips and mouth',
-    Results: 1098,
-    ParkAvg: 350,
-    HealthyAvg: 100,
-  },
-  {
-    name: 'Blink',
-    Results: 1200,
-    ParkAvg: 480,
-    HealthyAvg: 100,
+    ParkAvg: .27,
+    HealthyAvg: .21,
+    Results: 0.48213700893049927,
+
   }
 ];
 
+class CustomizedDot extends React.Component {
+    render() {
+        return (
+            <circle stroke="black" strokeWidth={3} fill="red" />
+        );
+    }
+  };
+
 export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-composed-chart-h9zif';
 
   render() {
     return (
@@ -59,9 +62,11 @@ export default class Example extends PureComponent {
           <XAxis dataKey="name" scale="band" />
           <YAxis />
           <Legend />
-          <Bar dataKey="Results" barSize={20} fill="#413ea0" />
-          <Scatter dataKey="ParkAvg" fill="red" />
-          <Scatter dataKey="HealthyAvg" fill="green" />
+
+          <Scatter shape={'triangle'} dataKey="ParkAvg" fill="#dc4d3b" />
+          <Scatter shape={'triangle'} dataKey="HealthyAvg" fill="#6fb129" />
+          <Scatter dataKey="Results" fill="orange" />
+
         </ComposedChart>
       </ResponsiveContainer>
     );

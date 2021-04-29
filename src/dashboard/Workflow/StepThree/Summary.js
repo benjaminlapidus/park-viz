@@ -84,7 +84,7 @@ export default function Summary(props) {
                 style={{ marginBottom: "-6px" }}
 
               >
-                Intepreting your results
+                Your symptoms in perspective
               </Typography>
             </Box>
 
@@ -103,29 +103,66 @@ export default function Summary(props) {
           </Paper>
         </Grid>
         <Grid item xs={5}>
-          <Paper style={{ padding: "12px" }} >
+          <Paper style={{ padding: "12px"}}>
+                <Box
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <Typography
+                    component="h2"
+                    variant="h6"
+                    color="primary"
+                    gutterBottom
+                    style={{ marginBottom: "-6px" }}
+                  >
+                    What is this chart?
+                  </Typography>
 
-            <Typography
-              component="h1"
-              variant="h6"
-              color="primary"
-              gutterBottom
+                  <Divider />
+                </Box>
 
-            >
-              Raw test results
+                <Typography>
+                This chart places your symptoms in the context of other users. After tracking key points on your face,
+                we identified how much control you have over your facial muscles.
                 </Typography>
-            <Typography
-              component="subtitle"
-              variant="subtitle"
-              color="text.secondary"
-              style={{ width: "100%", textAlign: "left" }}
-            >
-              For physicians and clinicians
+                <br />
+                <Typography>
+                  For reference, we've also calculated average muscle control for individuals with Parkinson's disease and individuals without Parkinson's disease.
+                </Typography>      
+              </Paper>
+              <Paper elevation={2} style={{ marginTop: "8px", padding: "12px"}}>
+                <Box
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    width: "100%",
+                    marginBottom: "12px",
+                  }}
+                >
+                  <Typography
+                    component="h2"
+                    variant="h6"
+                    color="primary"
+                    gutterBottom
+                    style={{ marginBottom: "-6px" }}
+                  >
+                   Conclusion
+                  </Typography>
+
+                  <Divider />
+                </Box>
+
+                <Typography>
+                  This diagnostic test indicated that your symptoms align strongly with symptoms associated with Parkinson's disease. This is not a medical diagnosis.</Typography>
+                <br />
+                <Typography>
+                  Please consult with your physician for the next steps in diagnosing Parkinson's disease.
                 </Typography>
-            <Divider />
-
-
-          </Paper>
+              </Paper>
         </Grid>
 
       </Grid>
