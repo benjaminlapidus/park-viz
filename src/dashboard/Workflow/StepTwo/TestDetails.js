@@ -20,6 +20,12 @@ import ReactPlayer from "react-player";
 import InfoIcon from "@material-ui/icons/Info";
 import clsx from "clsx";
 import Divider from "@material-ui/core/Divider";
+import vid1_1 from '../../Examples/video/1_1.webm'
+import vid1_2 from '../../Examples/video/1_2.webm'
+import vid1_3 from '../../Examples/video/1_3.webm'
+import vid2_1 from '../../Examples/video/2_1.webm'
+import vid2_2 from '../../Examples/video/2_2.webm'
+import vid2_3 from '../../Examples/video/2_3.webm'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -44,6 +50,21 @@ export default function TestDetails(props) {
   const data = props.sendData;
   console.log(id);
   console.log(data);
+  // fix id later to grab in for loop
+  const vid = data[id - 1][14].substring(0, 3)
+
+  var url = vid1_1;
+  if (vid == "1_2") {
+    url = vid1_2
+  } else if (vid == "1_3") {
+    url = vid1_3
+  } else if (vid == "2_1") {
+    url = vid2_1
+  } else if (vid == "2_2") {
+    url = vid2_2
+  } else if (vid == "2_3") {
+    url = vid2_3
+  }
 
   const classes = useStyles();
   const theme = useTheme();
@@ -55,14 +76,18 @@ export default function TestDetails(props) {
 
       <main className={classes.content}>
         <Container maxWidth="lg" className={classes.container}>
+          <h1 style={{ textAlign: "center" }}>{data[id - 1][3]}</h1>
           <Grid container spacing={1}>
             {/* Chart */}
             <Grid item xs={7}>
               <Paper>
                 <ReactPlayer
+                  playing={true}
+                  controls={true}
                   width={"100%"}
                   style={{ padding: "12px" }}
-                  url="https://www.youtube.com/watch?v=cRLB7WqX0fU"
+                  url={url}
+                // url={`../../Examples/video/${data[id][14]}`}
                 />
               </Paper>
             </Grid>

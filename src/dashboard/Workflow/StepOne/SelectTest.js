@@ -7,6 +7,7 @@ import {
 	GridToolbarExport,
 	GridFilterToolbarButton,
 } from "@material-ui/data-grid";
+import Modal from '@material-ui/core/Modal';
 import { makeStyles, withStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
@@ -81,6 +82,28 @@ const useStyles = makeStyles((theme) => ({
 	},
 }));
 
+function getModalStyle() {
+	const top = 50
+	const left = 50
+
+	return {
+		top: `${top}%`,
+		left: `${left}%`,
+		transform: `translate(-${top}%, -${left}%)`,
+	};
+}
+
+const useStyles2 = makeStyles((theme) => ({
+	paper: {
+		position: 'absolute',
+		width: 400,
+		backgroundColor: theme.palette.background.paper,
+		border: '2px solid #000',
+		boxShadow: theme.shadows[5],
+		padding: theme.spacing(2, 4, 3),
+	},
+}));
+
 const HtmlTooltip = withStyles((theme) => ({
 	tooltip: {
 		backgroundColor: "#f5f5f9",
@@ -147,9 +170,14 @@ export default function ToolbarGrid(props) {
 	const data = props.sendData
 	const [id, setId] = React.useState();
 	const [open, setOpen] = React.useState(false);
+	const [open2, setOpen2] = React.useState(true);
 	const classes = useStyles();
+	const classes2 = useStyles2();
+
+	const [modalStyle] = React.useState(getModalStyle);
 
 	var people = [];
+	var diagnose = 0;
 	for (var i = 0; i < data.length; i++) {
 		people[i] = {
 			id: data[i][0],
@@ -158,9 +186,20 @@ export default function ToolbarGrid(props) {
 			test: data[i][3],
 			upload: data[i][4]
 		};
+		diagnose = diagnose + parseInt(data[i][10])
 	}
 
-	// console.log(people)
+	var body = (
+		<div style={modalStyle} className={classes2.paper}>
+			<h2 id="simple-modal-title">Your results are in!</h2>
+			<p id="simple-modal-description">
+				{diagnose} out of 3 tests showed symptoms of Parkinson's
+		  	</p>
+			<p id="simple-modal-description">
+				Click to find out more
+		  	</p>
+		</div>
+	);
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -168,6 +207,10 @@ export default function ToolbarGrid(props) {
 
 	const handleClose = () => {
 		setOpen(false);
+	};
+
+	const handleClose2 = () => {
+		setOpen2(false);
 	};
 
 	const columns = [
@@ -413,6 +456,14 @@ export default function ToolbarGrid(props) {
 
 	return (
 		<div style={{ height: 550, width: "100%" }}>
+			<Modal
+				open={open2}
+				onClose={handleClose2}
+				aria-labelledby="simple-modal-title"
+				aria-describedby="simple-modal-description"
+			>
+				{body}
+			</Modal>
 			<DataGrid
 				pageSize={5}
 				rowsPerPageOptions={[5, 15, 30]}
@@ -426,6 +477,7 @@ export default function ToolbarGrid(props) {
 				rows={people}
 				columns={columns}
 				onRowOver={(e) => {
+					// make sure index is getting the row and not the actual id
 					setId(e.id);
 					props.passUserId(id)
 				}}
