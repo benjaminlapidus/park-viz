@@ -36,14 +36,6 @@ const data = [
   }
 ];
 
-class CustomizedDot extends React.Component {
-    render() {
-        return (
-            <circle stroke="black" strokeWidth={3} fill="red" />
-        );
-    }
-  };
-
 export default class Example extends PureComponent {
 
   render() {
@@ -61,11 +53,13 @@ export default class Example extends PureComponent {
           <CartesianGrid stroke="#f5f5f5" />
           <XAxis dataKey="name" scale="band" />
           <YAxis />
-          <Legend />
 
           <Scatter shape={'triangle'} dataKey="ParkAvg" fill="#dc4d3b" />
           <Scatter shape={'triangle'} dataKey="HealthyAvg" fill="#6fb129" />
           <Scatter dataKey="Results" fill="orange" />
+
+                    <Legend />
+
 
         </ComposedChart>
       </ResponsiveContainer>
