@@ -51,7 +51,7 @@ export default function TestDetails(props) {
   console.log(id);
   console.log(data);
   // fix id later to grab in for loop
-  const vid = data[id - 1][14].substring(0, 3)
+  const vid = data[id - 1][21].substring(0, 3)
 
   var url = vid1_1;
   if (vid == "1_2") {
@@ -122,10 +122,10 @@ export default function TestDetails(props) {
                   Using your videos to track key points on your face, we can calculate how strongly you can control different muscle groups in your face.
                 </Typography>
                 <br />
-                 <Typography>
+                <Typography>
                   The line chart below shows point-tracking in action. <b>Check out how your facial muscle groups were stressed throughout your test.</b>
                 </Typography>
-               
+
               </Paper>
             </Grid>
             {/* Recent Orders */}

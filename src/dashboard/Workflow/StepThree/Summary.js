@@ -57,8 +57,16 @@ const useStyles = makeStyles((theme) => ({
 export default function Summary(props) {
   const id = props.sendId;
   const data = props.sendData;
-  console.log(id);
-  console.log(data);
+
+  var arr = [];
+  for (var i = 0; i < 3; i++) {
+    arr[i] = {
+      name: data[id - 1][9 + (i * 4)],
+      ParkAvg: data[id - 1][10 + (i * 4)],
+      HealthyAvg: data[id - 1][11 + (i * 4)],
+      Results: data[id - 1][12 + (i * 4)]
+    }
+  }
 
   const classes = useStyles();
   const theme = useTheme();
@@ -88,7 +96,7 @@ export default function Summary(props) {
               </Typography>
             </Box>
 
-            <Chart />
+            <Chart sendData={arr} sendId={id} />
 
             {/*<RadarChart outerRadius={90} width={730} height={250} data={data}>
                   <PolarGrid />
@@ -103,66 +111,66 @@ export default function Summary(props) {
           </Paper>
         </Grid>
         <Grid item xs={5}>
-          <Paper style={{ padding: "12px"}}>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    marginBottom: "12px",
-                  }}
-                >
-                  <Typography
-                    component="h2"
-                    variant="h6"
-                    color="primary"
-                    gutterBottom
-                    style={{ marginBottom: "-6px" }}
-                  >
-                    What is this chart?
+          <Paper style={{ padding: "12px" }}>
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+                marginBottom: "12px",
+              }}
+            >
+              <Typography
+                component="h2"
+                variant="h6"
+                color="primary"
+                gutterBottom
+                style={{ marginBottom: "-6px" }}
+              >
+                What is this chart?
                   </Typography>
 
-                  <Divider />
-                </Box>
+              <Divider />
+            </Box>
 
-                <Typography>
-                This chart places your symptoms in the context of other users. After tracking key points on your face,
-                we identified how much control you have over your facial muscles.
+            <Typography>
+              This chart places your symptoms in the context of other users. After tracking key points on your face,
+              we identified how much control you have over your facial muscles.
                 </Typography>
-                <br />
-                <Typography>
-                  For reference, we've also calculated average muscle control for individuals with Parkinson's disease and individuals without Parkinson's disease.
-                </Typography>      
-              </Paper>
-              <Paper elevation={2} style={{ marginTop: "8px", padding: "12px"}}>
-                <Box
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    width: "100%",
-                    marginBottom: "12px",
-                  }}
-                >
-                  <Typography
-                    component="h2"
-                    variant="h6"
-                    color="primary"
-                    gutterBottom
-                    style={{ marginBottom: "-6px" }}
-                  >
-                   Conclusion
+            <br />
+            <Typography>
+              For reference, we've also calculated average muscle control for individuals with Parkinson's disease and individuals without Parkinson's disease.
+                </Typography>
+          </Paper>
+          <Paper elevation={2} style={{ marginTop: "8px", padding: "12px" }}>
+            <Box
+              style={{
+                display: "flex",
+                justifyContent: "space-between",
+                width: "100%",
+                marginBottom: "12px",
+              }}
+            >
+              <Typography
+                component="h2"
+                variant="h6"
+                color="primary"
+                gutterBottom
+                style={{ marginBottom: "-6px" }}
+              >
+                Conclusion
                   </Typography>
 
-                  <Divider />
-                </Box>
+              <Divider />
+            </Box>
 
-                <Typography>
-                  This diagnostic test indicated that your symptoms align strongly with symptoms associated with Parkinson's disease. This is not a medical diagnosis.</Typography>
-                <br />
-                <Typography>
-                  Please consult with your physician for the next steps in diagnosing Parkinson's disease.
+            <Typography>
+              This diagnostic test indicated that your symptoms align strongly with symptoms associated with Parkinson's disease. This is not a medical diagnosis.</Typography>
+            <br />
+            <Typography>
+              Please consult with your physician for the next steps in diagnosing Parkinson's disease.
                 </Typography>
-              </Paper>
+          </Paper>
         </Grid>
 
       </Grid>

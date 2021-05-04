@@ -25,7 +25,7 @@ const data = [
     name: 'Cheeks',
     ParkAvg: .25,
     HealthyAvg: .17,
-    Results: 0.2523954753748953   ,
+    Results: 0.2523954753748953,
   },
   {
     name: 'Lips and mouth',
@@ -37,20 +37,21 @@ const data = [
 ];
 
 class CustomizedDot extends React.Component {
-    render() {
-        return (
-            <circle stroke="black" strokeWidth={3} fill="red" />
-        );
-    }
-  };
+  render() {
+    return (
+      <circle stroke="black" strokeWidth={3} fill="red" />
+    );
+  }
+};
 
 export default class Example extends PureComponent {
 
+
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
+      < ResponsiveContainer width="100%" height="100%" >
         <ComposedChart
-          data={data}
+          data={this.props.sendData}
           margin={{
             top: 20,
             right: 20,
@@ -68,7 +69,7 @@ export default class Example extends PureComponent {
           <Scatter dataKey="Results" fill="orange" />
 
         </ComposedChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer >
     );
   }
 }
